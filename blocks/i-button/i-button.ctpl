@@ -43,6 +43,8 @@ i::button__face $parent $model
             @class +($block+"__checked")
         TEST ($model.isDisabled())
             @disabled
+        TEST ($model.get("tooltip"))
+            @title ($model.get("tooltip"))
         div
             @class ($block+"__face")
             CHOOSE
