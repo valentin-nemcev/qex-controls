@@ -1,6 +1,10 @@
 ns.models.popup = Backbone.Model.extend(
     {   
         'initialize': function() {
+            if (this.get('ownerButton')) {
+                this.set('owner', this.get('ownerButton').view.el);
+                this.set('mode', 'button');
+            }
             this.get('adaptive') === true &&
                 this.set(
                     'adaptive',

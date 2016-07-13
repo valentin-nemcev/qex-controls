@@ -17,7 +17,7 @@ i::button $data
                 i::button__face (this) $model
 
     JS
-        new ns.views.button(
+        $model.view = new ns.views.button(
             {
                 'el': $button,
                 'model': $model

@@ -127,3 +127,16 @@ i-popup-example
                         })
                             div.i-popup-example__content
                                 'some text'
+
+        li.i-example__list-item
+            CTPL-SUITE button
+                CTPL-CODE button
+                    span.i-popup-example__context
+                        i::button ({
+                            'label': 'owner button'
+                        }) AS $ownerButton
+                        i::popup ({
+                            'ownerButton': $ownerButton,
+                        })
+                            div.i-popup-example__content
+                                'some text'

@@ -47,7 +47,10 @@ ns.views.popup = Backbone.View.extend({
         this.show = this.show.bind(this);
         this.setShowTimeout = this.setShowTimeout.bind(this);
         this.clearShowTimeout = this.clearShowTimeout.bind(this);
+
+
         mode === 'click' && this.listenToOwner(mode);
+        mode === 'button' && this.listenToButton(this.model.get('ownerButton'));
         mode === 'hover' && this.showOnHover();
     },
     'styleTail': function() {
@@ -176,12 +179,24 @@ ns.views.popup = Backbone.View.extend({
         this.$el.css(styles);
         params.tail && this.styleTail();
     },
-    'show': function(e) {
+
+    // Prevent calling show/hide more than once while processing same event
+    '_guardVisibilityChange': function () {
+        if (this._isVisibilityChanging) {
+            return true;
+        } else {
+            this._isVisibilityChanging = true;
+            setTimeout(() => this._isVisibilityChanging = false, 0);
+            return false;
+        }
+    },
+
+    'show': function() {
+        if (this._guardVisibilityChange()) return;
         if (this.model.get('disabled') || this.destroyed) {
             return;
         }
         this.isAppended || this.append();
-        e && e.preventDefault();
         this.$el.show();
         this.$owner
             .parents()
@@ -190,10 +205,13 @@ ns.views.popup = Backbone.View.extend({
                 'scroll resize',
                 this.position
             );
+        this.isVisible = true;
         this.trigger('show');
         this.position();
     },
+
     'hide': function() {
+        if (this._guardVisibilityChange()) return;
         this.$owner
             .parents()
             .add(window)
@@ -202,9 +220,18 @@ ns.views.popup = Backbone.View.extend({
                 this.position
             );
         this.$el.hide();
+        this.isVisible = false;
         this.trigger('hide');
-        
     },
+
+    'toggle': function() {
+        if (this.isVisible) {
+            this.hide();
+        } else {
+            this.show();
+        }
+    },
+
     'append': function() {
         if (this.destroyed) {
             return;
@@ -227,14 +254,10 @@ ns.views.popup = Backbone.View.extend({
         this.destroyed = true;
     },
     'addAutoclose': function() {
-        window.setTimeout(
-            document.addEventListener.bind(
-                document,
-                'click',
-                this.autoclose,
-                true // use capture
-            ),
-            0
+        document.addEventListener(
+            'click',
+            this.autoclose,
+            true // use capture
         );
         this.once('hide', this.removeAutoclose);
     },
@@ -249,25 +272,16 @@ ns.views.popup = Backbone.View.extend({
     'autoclose': function(e) {
         this.el.contains(e.target) || this.hide();
     },
-    'listenToOwner': function(mode) {
-        window.setTimeout(
-            $.fn.on.bind(
-                this.$owner,
-                mode,
-                this.show
-            ),
-            0
-        );
-        this.once(
-            'show',
-            function() {
-                this.$owner.off(
-                    mode,
-                    this.show
-                );
-            }
-        );
-        this.once('hide', this.listenToOwner.bind(this, mode));
+    'listenToOwner': function(event) {
+        this.$owner.on(event, (ev) => {
+            ev.preventDefault();
+            this.toggle();
+        });
+    },
+    'listenToButton': function(button) {
+        this.listenTo(button, 'action', () => this.toggle());
+        this.on('show', () => button.set('checked', true));
+        this.on('hide', () => button.set('checked', false));
     },
 
     'showOnHover': function() {
