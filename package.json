@@ -63,6 +63,6 @@
     "sinon": "1.14.1",
     "through2": "0.6.3",
     "yargs": "3.6.0",
-    "qex-prism": "git://github.com/maetchkin/qex-prism.git"
+    "qex-prism": "git://github.com/valentin-nemcev/qex-prism.git"
   }
 }
