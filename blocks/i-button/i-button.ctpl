@@ -10,11 +10,11 @@ i::button $data
         WHEN ($model.get('fake'))
             div AS $button
                 @tabindex '0'
-                i::button__face (this) $model
+                i::button__face (this) $model PAYLOAD
         OTHERWISE
             button AS $button
                 @type 'button'
-                i::button__face (this) $model
+                i::button__face (this) $model PAYLOAD
 
     JS
         $model.view = new ns.views.button(
@@ -30,7 +30,7 @@ i-button__label $model
     span.i-button__label
         ($model.get("label"))
 
-i::button__face $parent $model
+i::button__face $parent $model $template
     SET $block ("i-button")
     ^$parent
         @class $block
@@ -50,5 +50,7 @@ i::button__face $parent $model
             CHOOSE
                 WHEN ($model.get("template"))
                     CALL ($model.get("template")) ($model)
-                OTHERWISE
+                WHEN ($model.get("label"))
                     CALL i-button__label ($model)
+                WHEN ($template)
+                  ((($template)))

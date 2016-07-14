@@ -48,7 +48,6 @@ ns.views.popup = Backbone.View.extend({
         this.setShowTimeout = this.setShowTimeout.bind(this);
         this.clearShowTimeout = this.clearShowTimeout.bind(this);
 
-
         mode === 'click' && this.listenToOwner(mode);
         mode === 'button' && this.listenToButton(this.model.get('ownerButton'));
         mode === 'hover' && this.showOnHover();
