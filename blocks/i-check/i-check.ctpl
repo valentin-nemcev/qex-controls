@@ -24,7 +24,7 @@ i::check $data
             @class ($block + "__label")
             CALL ($model.get("template")) ($model)
     JS
-        new ns.views.check(
+        $model.view = new ns.views.check(
             {
                 'el':       $check,
                 'model':    $model,

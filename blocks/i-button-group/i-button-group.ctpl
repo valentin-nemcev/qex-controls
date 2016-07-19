@@ -16,7 +16,7 @@ i::button-group $data $options
             OTHERWISE
                 @class +($block + "__empty")
     JS
-        new ns.views.buttongroup(
+        $model.view = new ns.views.buttongroup(
             {
                 'el': $buttonGroup,
                 'model': $model

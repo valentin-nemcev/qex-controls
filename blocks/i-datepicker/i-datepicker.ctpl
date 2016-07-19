@@ -15,7 +15,7 @@ i::datepicker $options
         }) AS $select
         JS
             $select.select($date);
-            new ns.views.datepicker({
+            $model.view = new ns.views.datepicker({
                 'options': $month,
                 'select': $select,
                 'el': this 

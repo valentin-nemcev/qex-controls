@@ -15,7 +15,7 @@ i::suggest $data $options
         CALL i-suggest-select ($model) AS $select
         JS
             $model.set('select', $select);
-            new ns.views.suggest(
+            $model.view = new ns.views.suggest(
                 {
                     'el': $suggest,
                     'model': $model

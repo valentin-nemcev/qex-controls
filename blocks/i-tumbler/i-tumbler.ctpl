@@ -24,7 +24,7 @@ i::tumbler $data
         div
             @class ($block + "__off")
     JS
-        new ns.views.tumbler(
+        $model.view = new ns.views.tumbler(
             {
                 'el':       $tumbler,
                 'model':    $model,
