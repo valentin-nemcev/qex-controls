@@ -5,7 +5,7 @@ ns.models.check = Backbone.Model.extend(
             'on':  false,
             'disabled': false,
             'label': '',
-            'template': 'i-check__label'
+            'template': $C.tpl['i-check__label']
         }
     }
 );

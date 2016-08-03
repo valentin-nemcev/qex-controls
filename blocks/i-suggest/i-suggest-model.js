@@ -11,7 +11,7 @@ ns.models.suggest = Backbone.Model.extend(
             'placeholder': '',
             'size': 'M',
             'min': 0,
-            'viewButton': 'i-suggest-input',
+            'viewButton': $C.tpl['i-suggest-input'],
             'viewOption': void(0),
             'selected':   void(0),
             'filter':     void(0),

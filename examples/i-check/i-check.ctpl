@@ -32,7 +32,7 @@ i-check-example__options
             dt
                 "template"
             dd
-                "Custom conkitty template name"
+                "Custom conkitty template function"
 
 i-check-example__sizing
     CTPL-SUITE Sizing

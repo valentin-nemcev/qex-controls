@@ -50,11 +50,11 @@ i-select-example__options
             dt
                 "viewButton"
             dd
-                "Template name for i-select button customization."
+                "Template function for i-select button customization."
             dt
                 "viewOption"
             dd
-                "Template name for i-select option customization."
+                "Template function for i-select option customization."
 
 i-select-example__string
     CTPL-SUITE String
@@ -313,8 +313,8 @@ i-select-example__customization
             i::select (
                 {
                     "options":    "One,Two,Three",
-                    "viewButton": "i-select__view-button",
-                    "viewOption": "i-select__view-option"
+                    "viewButton": $C.tpl["i-select__view-button"],
+                    "viewOption": $C.tpl["i-select__view-option"]
                 }
             ) AS $radioSelect
             CTPL-TEST must return a Backbone.Model
@@ -326,8 +326,8 @@ i-select-example__customization
             i::select (
                 {
                     "options":    "One,Two,Three",
-                    "viewButton": "i-select__view-button",
-                    "viewOption": "i-select__view-option",
+                    "viewButton": $C.tpl["i-select__view-button"],
+                    "viewOption": $C.tpl["i-select__view-option"],
                     "mode":       "check"
                 }
             ) AS $checkSelect

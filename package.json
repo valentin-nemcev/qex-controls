@@ -63,6 +63,7 @@
     "sinon": "1.14.1",
     "through2": "0.6.3",
     "yargs": "3.6.0",
-    "qex-prism": "git://github.com/valentin-nemcev/qex-prism.git"
+    "qex-prism": "git://github.com/valentin-nemcev/qex-prism.git",
+    "prismjs": "git+ssh://git@github.com/LeaVerou/prism.git#gh-pages"
   }
 }

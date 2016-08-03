@@ -11,11 +11,11 @@ i::datepicker $options
         i::select ({
             'placeholder': $date.get('placeholder'),
             'options': $month,
-            'viewOption': 'i-datepicker__day'
+            'viewOption': $C.tpl['i-datepicker__day']
         }) AS $select
         JS
             $select.select($date);
-            $model.view = new ns.views.datepicker({
+            $month.state.view = new ns.views.datepicker({
                 'options': $month,
                 'select': $select,
                 'el': this 

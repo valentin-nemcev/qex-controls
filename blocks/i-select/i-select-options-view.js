@@ -111,7 +111,7 @@ ns.views.selectOptions = Backbone.View.extend({
                      ?
                         li.act(
                             function() {
-                                $C.tpl[ select.get("viewOption") ].call(this, $option);
+                                select.get("viewOption").call(this, $option);
                             }
                         ).end()
                      :

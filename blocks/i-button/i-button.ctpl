@@ -51,8 +51,9 @@ i::button__face $parent $model $template
             @class ($block+"__face")
             CHOOSE
                 WHEN ($model.get("template"))
-                    CALL ($model.get("template")) ($model)
+                    JS
+                        $model.get("template").call(this, $model);
                 WHEN ($model.get("label"))
                     CALL i-button__label ($model)
                 WHEN ($template)
-                  ((($template)))
+                    ((($template)))

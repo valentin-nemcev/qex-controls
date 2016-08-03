@@ -52,7 +52,7 @@ i-button-example__options
             dt
                 "template"
             dd
-                "String. Custom template name instead default"
+                "Function. Custom template function instead default"
 
 i-button-example__label
     CTPL-SUITE Label
@@ -232,12 +232,12 @@ i-button-example__custom
                 span.i-button__custom-badge
                     ($model.get("value"))
 
-        CTPL-CODE set 'template' option with its name
+        CTPL-CODE set 'template' option
             span AS $container
                 i::button ({
                     "label":"custom",
                     "value": "123",
-                    "template": "i-button__custom"
+                    "template": $C.tpl["i-button__custom"]
                 })
             SET $node ($($container.firstChild))
             CTPL-TEST check customization

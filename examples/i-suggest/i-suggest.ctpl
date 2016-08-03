@@ -58,11 +58,11 @@ i-suggest-example__options
                 dt
                     "viewButton"
                 dd
-                    "Template name for i-select button customization."
+                    "Template function for i-select button customization."
                 dt
                     "viewOption"
                 dd
-                    "Template name for i-select option customization."
+                    "Template function for i-select option customization."
                 dt
                     "loading"
                 dd
@@ -221,8 +221,8 @@ i-suggest-example__customization
             CTPL-CODE Set custom templates for input and option
                 i::suggest ({
                     'data': './examples/i-suggest/capitals.json',
-                    'viewButton': 'i-suggest__custom-button',
-                    'viewOption': 'i-suggest__custom'
+                    'viewButton': $C.tpl['i-suggest__custom-button'],
+                    'viewOption': $C.tpl['i-suggest__custom']
                 }) AS $suggest__custom_view
                 CTPL-TEST check type
                     expect( $suggest__custom_view ).to.be.an.instanceof(Backbone.Model);

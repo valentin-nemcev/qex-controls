@@ -149,12 +149,12 @@ i-button-group-example__customization
                     {'label': 'Three', 'value': '3', 'loading': true}
                 ]) ({
                     'radiocheck': true,
-                    'template':'i-button__custom'
+                    'template': $C.tpl['i-button__custom']
                 })
             CTPL-CODE Template with object
                 i::button-group ({
                         'size': 'S',
-                        'template':'i-button__custom',
+                        'template': $C.tpl['i-button__custom'],
                         'buttons':[
                             {'label': 'One', 'value': '1'},
                             {'label': 'Two', 'value': '2'},

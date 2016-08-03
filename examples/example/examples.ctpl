@@ -62,8 +62,8 @@ i-examples__packages-selector $options $selected
         i::select ({
                 'options': $packages,
                 'size': 'S',
-                "viewButton": "i-examples__packages-selector-option",
-                "viewOption": "i-examples__packages-selector-option"
+                "viewButton": $C.tpl["i-examples__packages-selector-option"],
+                "viewOption": $C.tpl["i-examples__packages-selector-option"]
             }) AS $packagesSelector
     JS
         $packagesSelector.select(

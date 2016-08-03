@@ -23,7 +23,12 @@ i::select $data $options
             'label':    $model.get('label') || $model.get('placeholder'),
             'size':     $model.get('size'),
             'disabled': $model.get('disabled'),
-            'template': $model.get('viewButton') ? "i-select__button" : void(0),
+            'template': $model.get('viewButton')
+                ? function(button) {
+                    var select = button.get("select");
+                    return $model.get('viewButton').call(this, select.get("selected"), select);
+                }
+                : void(0),
             'select':   $model,
             'fake':     true
         }) AS $button
@@ -56,7 +61,3 @@ i-select__options-list $select
             'model': $select
         });
     EXPOSE $optionsList
-
-i-select__button $button
-    SET $select ($button.get("select"))
-    CALL ($select.get("viewButton")) ($select.get("selected")) ($select)
