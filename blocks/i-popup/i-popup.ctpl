@@ -1,4 +1,6 @@
 i::popup $data
+    &"../i/i.js"
+    &"../i/i.less"
     &"i-popup.less"
     &"i-popup-model.js"
     &"i-popup-view.js"
