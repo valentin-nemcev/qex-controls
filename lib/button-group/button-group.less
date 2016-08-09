@@ -1,0 +1,44 @@
+.i-button-group{
+    @import (reference) "../i/i";
+    display: inline-flex;
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 0;
+    
+    .i-button {
+        position: relative;
+        z-index: 0;
+        
+        &:not(:last-child){
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child){
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -1px;
+        }
+        
+        
+        
+        &__checked{
+            z-index: 1;
+        }
+        
+        &:focus{
+            z-index: 2;
+        }
+        
+        &:hover{
+            z-index: 3;
+        }
+        
+        &[disabled]{
+            z-index: -1;
+        }
+    }
+}
+
+
+

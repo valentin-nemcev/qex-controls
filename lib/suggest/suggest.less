@@ -1,0 +1,108 @@
+.i-suggest {
+    @import (reference) "../i/i";
+    display: inline-flex;
+    align-items: baseline;
+    & > .i-select > .i-button {
+        cursor: hand;
+
+        &:active {
+            background: #FFF;
+        }
+
+        &[disabled]:not(.i-button__loading){
+            cursor: hand;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            background: #FFF;
+        }
+
+        & > .i-button__face {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: baseline;
+
+            .i-suggest-selected{
+                display: inline-flex;
+                flex-direction: row;
+                align-items: baseline;
+                background-color: @checked-color;
+                margin: .2em;
+                line-height: 1.5;
+                border-radius: 3px;
+                padding: 0 .2em 0 .5em;
+                border: 1px solid fadeout(@border-color, 10%);
+                &__text{
+                    flex-grow: 1;
+                    word-wrap: break-word;
+                    white-space: normal;
+                }
+                &__cross{
+                    flex-shrink: 0;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    line-height: 1;
+                    margin-left: .3em;
+                    opacity: 0.2;
+                    &:hover{
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            & > .i-input > .i-input__input {
+                padding-left: 0;
+                border: 0;
+                background: transparent;
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    &&__param > .i-select{
+        & > .i-button{
+            padding-right: 0;
+        }
+        &:after {
+            display: none;
+        }
+    }
+
+    &&__loading > .i-select:after {
+        content: '';
+        position: absolute;
+        height: 1em;
+        width:  1em;
+        transform-origin: 50% 50%;
+        border-right:   2px solid gray;
+        border-left:    2px solid gray;
+        border-top:     2px solid white;
+        border-bottom:  2px solid white;
+        border-radius: 1em;
+        transform: initial;
+        animation: spin 2s linear infinite;
+        display: block;
+        bottom: calc(~"50% - .5rem");
+        right: calc(.5rem);
+    }
+
+    &&__loading > .i-select > .i-button > .i-button__face > .i-input > .i-input__clear{
+        display: none;
+    }
+
+    &:not(.i-suggest__param){
+        & > .i-select > .i-button > .i-button__face > .i-input{
+            & > .i-input__input {
+                padding-right: 0;
+            }
+            & > .i-input__clear{
+                display: none;
+            }
+        } 
+    }
+}
+
+
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
