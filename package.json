@@ -4,24 +4,32 @@
   "main": "./index.js",
   "scripts": {
     "build": "gulp",
+    "convert": "convert-qex --qex-controls-source blocks/ --qex-controls-target lib --clear-target",
     "test": "gulp"
   },
-  "keywords": ["backbone","exoskeleton","ui","mvc","mvvm","controls"],
+  "keywords": [
+    "backbone",
+    "exoskeleton",
+    "ui",
+    "mvc",
+    "mvvm",
+    "controls"
+  ],
   "description": "This is a library of UI blocks based on a number of modern front-end technologies which transparently demonstrates our approach to Single Page Applications. We are providing this library with documentation, examples and tests which are built on qex-controls library and should give explanations to various aspects of a block's architecture from within, so feel free to look inside.",
   "homepage": "http://maetchkin.github.io/qex-controls/",
   "repository": {
     "type": "git",
     "url": "https://github.com/maetchkin/qex-controls.git"
   },
-  "contributors":[
+  "contributors": [
     {
-      "name":  "Bogdan Maetchkin",
-      "email":  "maetchkin@gmail.com",
+      "name": "Bogdan Maetchkin",
+      "email": "maetchkin@gmail.com",
       "url": "https://twitter.com/maetchkin"
     },
     {
-      "name":  "Filipp Ryabchun",
-      "email":  "talpa@yandex.ru",
+      "name": "Filipp Ryabchun",
+      "email": "talpa@yandex.ru",
       "url": "https://vk.com/hypnos"
     }
   ],
@@ -45,6 +53,7 @@
     "backbone": "1.1.2",
     "chai": "1.10.0",
     "conkitty": "0.5.16",
+    "convert-qex": "git+ssh://git@git.qe-infra.yandex-team.ru/search-evaluation/convert-qex.git#9f1f8b7",
     "del": "0.1.3",
     "gulp": "3.8.11",
     "gulp-concat": "2.4.1",
@@ -60,10 +69,10 @@
     "gulp-wrapper": "0.1.5",
     "jquery": "2.1.3",
     "mocha": "2.5.3",
+    "prismjs": "git+ssh://git@github.com/LeaVerou/prism.git#gh-pages",
+    "qex-prism": "git://github.com/valentin-nemcev/qex-prism.git",
     "sinon": "1.14.1",
     "through2": "0.6.3",
-    "yargs": "3.6.0",
-    "qex-prism": "git://github.com/valentin-nemcev/qex-prism.git",
-    "prismjs": "git+ssh://git@github.com/LeaVerou/prism.git#gh-pages"
+    "yargs": "3.6.0"
   }
 }
