@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "autoprefixer-core": "5.2.1",
+    "babel-preset-es2015": "6.14.0",
     "backbone": "1.1.2",
     "chai": "1.10.0",
     "conkitty": "0.5.16",
