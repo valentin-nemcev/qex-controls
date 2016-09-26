@@ -44,8 +44,9 @@
     "dest": "stand"
   },
   "dependencies": {
-    "glob": "7.0.3",
+    "concat.js": "0.9.5",
     "exoskeleton": "0.7.0",
+    "glob": "7.0.3",
     "zepto": "git://github.com/madrobby/zepto.git"
   },
   "devDependencies": {
