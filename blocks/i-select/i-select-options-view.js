@@ -103,9 +103,12 @@ ns.views.selectOptions = Backbone.View.extend({
                 rendered.push($option.cid);
                 var focus = (select.get('focus') == $option.cid);
                 var li = top.li({
-                        'class':    block + ( !!index[$option.cid] ? ' '+block+'-selected' : '' ) + ( focus ? ' '+block+'-focus' : '' ),
-                        'data-cid': $option.cid
-                    });
+                  'class': block
+                    + ( !!index[$option.cid] ? ' '+block+'-selected' : '' )
+                    + ( focus ? ' '+block+'-focus' : '' )
+                    + ( $option.get('disabled') ? ' '+block+'-disabled' : '' ),
+                  'data-cid': $option.cid
+                });
 
                 select.get("viewOption")
                      ?
