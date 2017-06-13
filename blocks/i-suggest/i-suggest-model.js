@@ -163,13 +163,13 @@ ns.models.suggest = Backbone.Model.extend(
         },
 
         'filter': function(option, input){
-            return this
+            return (input == '') || (!option.get('disabled') && this
                         .get('select')
                         .getOptionLabel(option)
                         .toLowerCase()
                         .indexOf(
                             input ? input.toLowerCase() : ''
-                        ) == 0;
+                        ) == 0);
         },
 
         'setFiltered': function(){
@@ -184,8 +184,7 @@ ns.models.suggest = Backbone.Model.extend(
 
             this.get('data').models.forEach(
                 function (option) {
-
-                    if ( ! filter.call(this, option, input.get('value') ) ) {
+                    if ( ! filter.call(this, option, input.get('value')) ) {
                         filtered[option.cid] = true;
                     }
                 },
