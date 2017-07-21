@@ -219,7 +219,7 @@ i-select-example__collection
     CTPL-SUITE Backbone.Collection
         CTPL-CODE Define collection
             SET $collection (new Backbone.Collection([
-                            {"value":"1", "label":"One"},
+                            {"value":"1", "label":"One", "disabled":true},
                             {"value":"2", "label":"Two"},
                             {"value":"3", "label":"Three"}
                         ]))

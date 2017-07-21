@@ -3,7 +3,8 @@
         "label": "Abu Dhabi",
         "capital": "Abu Dhabi",
         "country": "United Arab Emirates",
-        "code": "AE"
+        "code": "AE",
+        "disabled": true
     },
     {
         "label": "Abuja",
@@ -71,6 +72,7 @@
         "capital": "Antananarivo",
         "country": "Madagascar",
         "code": "MG"
+
     },
     {
         "label": "Apia",
@@ -94,13 +96,15 @@
         "label": "Astana",
         "capital": "Astana",
         "country": "Kazakhstan",
-        "code": "KZ"
+        "code": "KZ",
+        "disabled": true
     },
     {
         "label": "Asuncion",
         "capital": "Asuncion",
         "country": "Paraguay",
-        "code": "PY"
+        "code": "PY",
+        "disabled": true
     },
     {
         "label": "Atafu",

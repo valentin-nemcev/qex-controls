@@ -147,11 +147,10 @@ ns.models.select = Backbone.Model.extend(
             if (type === 'string') {
                 selected = selected.join(this.get("delim"));
             } else {
-                if(!isCheck){
+                if (!isCheck) {
                     selected = selected.length ? selected[0] : null;
                 }
             }
-
             return selected;
         },
 
@@ -249,7 +248,7 @@ ns.models.select = Backbone.Model.extend(
                         if(option.cid === current){
                             this.set('focus', prev);
                             return false;
-                        } else {
+                        } else if (!option.get('disabled')){
                             prev = option.cid;
                         }
 
@@ -272,7 +271,7 @@ ns.models.select = Backbone.Model.extend(
                             return true;
                         }
 
-                        if(next){
+                        if(next && !option.get('disabled')){
                             this.set('focus', option.cid);
                             return false;
                         } else if(option.cid === current){
@@ -287,9 +286,11 @@ ns.models.select = Backbone.Model.extend(
                     function(option){
                         if(option.cid in filtered){
                             return true;
-                        } else {
+                        } else if(!option.get('disabled')) {
                             next = option.cid;
                             return false;
+                        } else {
+                            return true;
                         }
                     },
                     this
