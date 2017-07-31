@@ -84,7 +84,7 @@ ns.models.select = Backbone.Model.extend(
 
         'select': function(value){
             if (!value){
-                throw "i::select: incorrect value";
+                return
             }
             var select = this,
                 type = this.get('type'),
@@ -99,7 +99,7 @@ ns.models.select = Backbone.Model.extend(
                 select.selectByCid(value.cid);
                 return this;
             } else {
-                throw "i::select: incorrect value type";
+                return
             }
 
             if(selected.length){
