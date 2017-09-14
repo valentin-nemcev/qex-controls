@@ -59,7 +59,7 @@ ns.views.input = Backbone.View.extend(
         },
         'setValue': function(model, value) {
             value = value + '';
-            this.$input.val(value);
+            if (this.$input.valu() != value) this.$input.val(value);
             this.$el.toggleClass('i-input__empty', !(value.length > 0));
         },
         'onInput': function() {
