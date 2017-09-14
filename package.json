@@ -5,7 +5,8 @@
   "scripts": {
     "build": "gulp",
     "convert": "convert-qex --qex-controls-source blocks/ --qex-controls-target lib --clear-target",
-    "test": "gulp"
+    "test": "gulp",
+    "postversion": "git push --follow-tags"
   },
   "keywords": [
     "backbone",
