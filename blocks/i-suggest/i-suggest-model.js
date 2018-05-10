@@ -7,6 +7,7 @@ ns.models.suggest = Backbone.Model.extend(
             'option': false,
             'param':  false,
             'loading':  false,
+            'focused': true,
             'debounce': 150,
             'placeholder': '',
             'size': 'M',
@@ -119,8 +120,8 @@ ns.models.suggest = Backbone.Model.extend(
                 select.get('input')
             );
 
-            
-        
+
+
 
         },
 
@@ -139,13 +140,14 @@ ns.models.suggest = Backbone.Model.extend(
         },
 
         'setSelected': function(){
-            var select = this.get('select');
+            var select = this.get('select'),
+                self = this;
             this.get('mode') === 'check' || select.set('filtered',{});
             this.set('selected', select.get('selected'));
             setTimeout(
                 function(){
                     var input = select.get('input');
-                    if(input){
+                    if(input && self.focused){
                         input.trigger('focus');
                     }
                 },
@@ -164,12 +166,12 @@ ns.models.suggest = Backbone.Model.extend(
 
         'filter': function(option, input){
             return (input == '') || (!option.get('disabled') && this
-                        .get('select')
-                        .getOptionLabel(option)
-                        .toLowerCase()
-                        .indexOf(
-                            input ? input.toLowerCase() : ''
-                        ) == 0);
+                                                                .get('select')
+                                                                .getOptionLabel(option)
+                                                                .toLowerCase()
+                                                                .indexOf(
+                                                                    input ? input.toLowerCase() : ''
+                                                                ) == 0);
         },
 
         'setFiltered': function(){
